@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+    <title>Practice editor | Tarbert Street Dental</title>
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+
+<body>
+    <main class="admin-shell">
+        <header><a class="back" href="Home.dc.html">← View website</a>
+            <p class="eyebrow">Tarbert Street Dental</p>
+            <h1>Practice editor</h1>
+            <p>Keep the details on your website current. Changes are saved in this browser and appear on the home page
+                immediately.</p>
+        </header>
+        <section class="panel">
+            <div class="panel-head">
+                <div><span class="eyebrow">About page</span>
+                    <h2>Meet the team</h2>
+                </div><button class="button" type="button" data-add-team>+ Add person</button>
+            </div>
+            <div data-team-editor></div>
+        </section>
+        <section class="panel">
+            <div class="panel-head">
+                <div><span class="eyebrow">What you offer</span>
+                    <h2>Services</h2>
+                </div><button class="button" type="button" data-add-service>+ Add service</button>
+            </div>
+            <div data-service-editor></div>
+        </section>
+        <section class="panel">
+            <div class="panel-head">
+                <div><span class="eyebrow">Home page</span>
+                    <h2>Page images</h2>
+                </div>
+            </div>
+            <div class="image-editor"><label>Hero image URL<input data-image-url="hero"
+                        placeholder="https://..."></label><label>Practice image URL<input data-image-url="practice"
+                        placeholder="https://..."></label><button class="button primary" type="button"
+                    data-save-images>Save images</button>
+                <p data-image-message></p>
+            </div>
+        </section>
+        <div class="save-bar"><span data-save-message>Unsaved changes are kept in your edits below.</span><button
+                class="button primary" data-save type="button">Save all changes</button></div>
+    </main>
+    <script type="module" src="scripts/admin.js"></script>
+</body>
+
+</html>

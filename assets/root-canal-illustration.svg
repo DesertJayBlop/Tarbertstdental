@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="110 40 980 816" width="980" height="816" role="img" aria-label="Illustration of a molar in cross-section showing the cleaned and sealed root canals inside the tooth">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f7fb"/>
+      <stop offset="1" stop-color="#fdf8ec"/>
+    </linearGradient>
+    <linearGradient id="enamel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eaf1f9"/>
+    </linearGradient>
+    <linearGradient id="dentine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdf4e2"/>
+      <stop offset="1" stop-color="#f2e0bd"/>
+    </linearGradient>
+    <linearGradient id="gum" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8d5c3"/>
+      <stop offset="1" stop-color="#f0bda4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1000" fill="url(#bg)"/>
+
+  <!-- calm concentric halo behind the tooth -->
+  <g fill="none" stroke="#e7d3a4">
+    <circle cx="600" cy="470" r="326" stroke-width="2" opacity=".55"/>
+    <circle cx="600" cy="470" r="388" stroke-width="2" opacity=".4"/>
+    <circle cx="600" cy="470" r="450" stroke-width="2" opacity=".28"/>
+  </g>
+  <circle cx="600" cy="460" r="290" fill="#ffffff" opacity=".6"/>
+
+  <!-- gum and bone the tooth sits in -->
+  <path d="M0 704c140-36 300-52 600-52s460 16 600 52v296H0z" fill="#fdeee6"/>
+  <path d="M0 704c140-36 300-52 600-52s460 16 600 52v58c-140-30-300-44-600-44s-460 14-600 44z" fill="url(#gum)"/>
+
+  <!-- tooth: dentine body with two roots -->
+  <path d="M600 208c106 0 190 56 190 154 0 64-17 107-27 170-12 78-25 195-53 252-15 29-39 31-51-2-15-39-27-107-35-154h-48c-8 47-20 115-35 154-12 33-36 31-51 2-28-57-41-174-53-252-10-63-27-106-27-170 0-98 84-154 190-154z" fill="url(#dentine)"/>
+
+  <!-- enamel cap over the crown -->
+  <path d="M600 208c106 0 190 56 190 154 0 26-3 49-8 71-54-27-110-40-182-40s-128 13-182 40c-5-22-8-45-8-71 0-98 84-154 190-154z" fill="url(#enamel)"/>
+  <path d="M418 433c54-27 110-40 182-40s128 13 182 40" fill="none" stroke="#dbe5f1" stroke-width="7"/>
+
+  <!-- chewing surface -->
+  <path d="M474 296c28 19 56 27 126 27s98-8 126-27" fill="none" stroke="#cfdcec" stroke-width="10" stroke-linecap="round"/>
+  <path d="M600 252v68" stroke="#cfdcec" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- the canals: cleaned and sealed, drawn slim and calm rather than inflamed -->
+  <path d="M600 398c46 0 78 12 78 30 0 17-12 28-20 50-11 30-20 112-30 158-5 24-18 24-23 2-7-30-12-98-18-132-6 34-11 102-18 132-5 22-18 22-23-2-10-46-19-128-30-158-8-22-20-33-20-50 0-18 32-30 78-30z" fill="#f0d9cf"/>
+  <path d="M600 424c30 0 50 8 50 21 0 13-10 21-16 38-9 24-16 92-25 131-4 18-12 18-15 1-5-25-9-80-14-107-5 27-9 82-14 107-3 17-11 17-15-1-9-39-16-107-25-131-6-17-16-25-16-38 0-13 20-21 50-21z" fill="#c4441a" opacity=".82"/>
+
+  <!-- highlight on the crown -->
+  <path d="M498 266c19-23 45-35 77-37" fill="none" stroke="#ffffff" stroke-width="15" stroke-linecap="round" opacity=".9"/>
+
+  <!-- outline pass last, so the silhouette stays crisp at small sizes -->
+  <path d="M600 208c106 0 190 56 190 154 0 64-17 107-27 170-12 78-25 195-53 252-15 29-39 31-51-2-15-39-27-107-35-154h-48c-8 47-20 115-35 154-12 33-36 31-51 2-28-57-41-174-53-252-10-63-27-106-27-170 0-98 84-154 190-154z" fill="none" stroke="#14213d" stroke-width="11" stroke-linejoin="round"/>
+
+  <!-- relief motif: shield and check, matching the page's calm, sorted tone -->
+  <circle cx="922" cy="742" r="104" fill="#fdf8ec" opacity=".92"/>
+  <g transform="translate(848 650)">
+    <path d="M0 4c34-6 60-18 74-30 14 12 40 24 74 30 0 62-28 104-74 128C28 108 0 66 0 4z" fill="#a7c6ed"/>
+    <path d="M46 64l23 25 45-53" fill="none" stroke="#14213d" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

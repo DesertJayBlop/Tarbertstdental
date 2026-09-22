@@ -1,0 +1,4 @@
+# Preview site — not for indexing. Remove this file when the site goes live
+# on the practice's own domain.
+User-agent: *
+Disallow: /

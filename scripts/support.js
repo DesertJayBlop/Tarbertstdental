@@ -1,0 +1,2 @@
+export const qs=(selector,scope=document)=>scope.querySelector(selector);export const qsa=(selector,scope=document)=>[...scope.querySelectorAll(selector)];
+export function escapeHtml(value=''){return String(value).replace(/[&<>'"]/g,(character)=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]))}

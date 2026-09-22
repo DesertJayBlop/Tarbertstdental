@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" role="img" aria-label="Illustration of the Tarbert Street Dental team in front of a window looking out to the Central Otago hills">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eaf1fa"/>
+      <stop offset="1" stop-color="#fdf7ea"/>
+    </linearGradient>
+    <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9cde8"/>
+      <stop offset="1" stop-color="#9db7da"/>
+    </linearGradient>
+    <linearGradient id="hillNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e3c98a"/>
+      <stop offset="1" stop-color="#d3b673"/>
+    </linearGradient>
+    <clipPath id="windowClip">
+      <path d="M250 640V370a250 250 0 0 1 500 0v270z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1000" height="1000" fill="#fbf6e9"/>
+  <circle cx="500" cy="500" r="500" fill="url(#sky)"/>
+
+  <!-- soft rings, echoing the gold outline motif used elsewhere on the site -->
+  <circle cx="500" cy="500" r="470" fill="none" stroke="#f1e4c3" stroke-width="2"/>
+  <circle cx="500" cy="500" r="430" fill="none" stroke="#f1e4c3" stroke-width="2" opacity=".6"/>
+
+  <!-- arch window onto the Central Otago hills -->
+  <g clip-path="url(#windowClip)">
+    <rect x="250" y="100" width="500" height="540" fill="#dce9f7"/>
+    <circle cx="628" cy="288" r="50" fill="#e8cf92"/>
+    <path d="M250 476c70-58 118-96 196-96 74 0 108 44 166 44 44 0 96-30 138-62v278H250z" fill="url(#hillFar)"/>
+    <path d="M250 546c62-46 112-74 178-74 78 0 126 52 196 52 48 0 100-20 126-40v156H250z" fill="url(#hillNear)"/>
+    <path d="M250 602c56-24 104-36 166-36 84 0 140 30 206 30 46 0 106-12 128-22v66H250z" fill="#c9a86a"/>
+  </g>
+  <path d="M250 640V370a250 250 0 0 1 500 0v270" fill="none" stroke="#14213d" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M500 122v518M250 476h500" stroke="#14213d" stroke-width="7" opacity=".85"/>
+
+  <!-- potted plant beside the counter -->
+  <g>
+    <path d="M150 790c-6-44 4-82 26-108-34 10-54 40-58 78-8-34-30-56-62-64 18 30 26 62 22 94z" fill="#7d9a76"/>
+    <path d="M112 790h76l-9 66a15 15 0 0 1-15 13h-28a15 15 0 0 1-15-13z" fill="#c4441a"/>
+  </g>
+
+  <!-- the team: stylised figures, deliberately not likenesses of real people -->
+  <!-- left -->
+  <g>
+    <path d="M222 836v-78a88 88 0 0 1 176 0v78z" fill="#5f7f6a"/>
+    <path d="M310 672l-32 24 32 46 32-46z" fill="#4c6957"/>
+    <rect x="293" y="616" width="34" height="48" rx="17" fill="#e8c9a8"/>
+    <ellipse cx="256" cy="600" rx="15" ry="34" fill="#6b4a2f"/>
+    <ellipse cx="364" cy="600" rx="15" ry="34" fill="#6b4a2f"/>
+    <circle cx="310" cy="584" r="64" fill="#6b4a2f"/>
+    <circle cx="310" cy="596" r="56" fill="#e8c9a8"/>
+    <circle cx="292" cy="600" r="5" fill="#14213d"/>
+    <circle cx="328" cy="600" r="5" fill="#14213d"/>
+    <path d="M294 620a22 22 0 0 0 32 0" fill="none" stroke="#14213d" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- right -->
+  <g>
+    <path d="M602 836v-78a88 88 0 0 1 176 0v78z" fill="#c4441a"/>
+    <path d="M690 672l-32 24 32 46 32-46z" fill="#a83a15"/>
+    <rect x="673" y="616" width="34" height="48" rx="17" fill="#e8c9a8"/>
+    <circle cx="690" cy="582" r="63" fill="#2f2a26"/>
+    <circle cx="690" cy="596" r="56" fill="#e8c9a8"/>
+    <circle cx="672" cy="600" r="5" fill="#14213d"/>
+    <circle cx="708" cy="600" r="5" fill="#14213d"/>
+    <path d="M674 620a22 22 0 0 0 32 0" fill="none" stroke="#14213d" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- centre -->
+  <g>
+    <path d="M398 836v-92a102 102 0 0 1 204 0v92z" fill="#a7c6ed"/>
+    <path d="M500 646l-36 26 36 54 36-54z" fill="#8fb4e3"/>
+    <rect x="481" y="588" width="38" height="52" rx="19" fill="#e8c9a8"/>
+    <circle cx="500" cy="496" r="27" fill="#8a6a3a"/>
+    <circle cx="500" cy="550" r="70" fill="#8a6a3a"/>
+    <circle cx="500" cy="566" r="62" fill="#e8c9a8"/>
+    <circle cx="480" cy="570" r="5" fill="#14213d"/>
+    <circle cx="520" cy="570" r="5" fill="#14213d"/>
+    <path d="M482 592a24 24 0 0 0 36 0" fill="none" stroke="#14213d" stroke-width="5" stroke-linecap="round"/>
+    <!-- small tooth badge on the tunic -->
+    <path d="M500 742c12 0 20 7 20 16 0 11-5 15-7 26-2 9-4 14-8 14s-4-8-5-15c-1 7-2 15-6 15s-6-5-8-14c-2-11-6-15-6-26 0-9 8-16 20-16z" fill="#fff" opacity=".92"/>
+  </g>
+
+  <!-- reception counter, drawn last so the team sits behind it -->
+  <rect x="60" y="846" width="880" height="154" fill="#14213d"/>
+  <rect x="60" y="846" width="880" height="13" fill="#c9a227"/>
+</svg>

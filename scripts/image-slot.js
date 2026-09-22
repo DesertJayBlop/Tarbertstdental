@@ -1,0 +1,2 @@
+export function loadImages(){document.querySelectorAll('[data-image]').forEach((image)=>{const key=`tarbertDentalImage:${image.dataset.image}`;const saved=localStorage.getItem(key);if(saved)image.src=saved})}
+export function saveImage(key,dataUrl){localStorage.setItem(`tarbertDentalImage:${key}`,dataUrl)}
