@@ -10,3 +10,7 @@
 .heritage-seal-note{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b8c5d8;margin-top:17px}
 .heritage-copy{position:relative;z-index:1;max-width:650px}.heritage-eyebrow{color:#e6c76a;text-transform:uppercase;font-size:12px;font-weight:600;letter-spacing:.15em;margin:0 0 17px}.heritage h2{color:#fff;font-size:clamp(32px,3.5vw,49px);line-height:1.08;margin:0 0 20px}.heritage-copy>p:not(.heritage-eyebrow){font-size:17px;line-height:1.8;margin:0 0 25px;color:#cfdae9}.heritage-link{display:inline-flex;align-items:center;gap:18px;color:#f3d98c;font-size:14px;font-weight:600;border-bottom:1px solid rgba(243,217,140,.5);padding-bottom:6px}.heritage-link:hover{color:#fff}.heritage-link:focus-visible{outline:2px solid #f3d98c;outline-offset:6px}
 @media(max-width:800px){.heritage{grid-template-columns:1fr;gap:32px;padding:38px 27px;margin-bottom:72px}.heritage-seal{width:220px;margin:auto}.heritage-number{font-size:92px}.heritage-copy{text-align:center}.heritage h2{font-size:34px}.heritage-copy>p:not(.heritage-eyebrow){font-size:16px}.heritage-link{font-size:13px;gap:10px}}
+
+/* Practice email sits under the phone number in the footer contact column. */
+.footer-email{font-family:var(--body)!important;font-size:15px!important;font-weight:500;letter-spacing:0;word-break:break-word;max-width:100%}
+.footer-email:hover{text-decoration:underline}

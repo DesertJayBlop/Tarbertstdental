@@ -1,0 +1,45 @@
+name: Check
+# Verifies main before anything reaches production. This never deploys:
+# .github/workflows/pages.yml publishes the site, and only from `production`.
+on:
+  pull_request:
+    branches: [main, production]
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      # Build for the Pages subdirectory, as the deploy workflow does, so a
+      # base-path mistake fails here rather than on the live site.
+      - name: Build website and Studio
+        run: npm run build
+        env:
+          SANITY_STUDIO_BASEPATH: /Tarbertstdental/studio
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+      # cms.test.mjs and contact.test.mjs drive the real server on :4173;
+      # pages.test.mjs starts its own. Wait for the port with no extra package.
+      - name: Run the full test suite
+        run: |
+          npm start &
+          for i in $(seq 1 60); do
+            curl -sfo /dev/null http://localhost:4173/Home.dc.html && break
+            sleep 1
+          done
+          curl -sfo /dev/null http://localhost:4173/Home.dc.html || {
+            echo "Local server did not start"; exit 1;
+          }
+          npm test

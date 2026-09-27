@@ -18,7 +18,8 @@
   // Hidden start states apply only when something is there to reveal them.
   if (supported && !reduced) root.classList.add('js-reveal');
 
-  const MAX_DELAY = 900;
+  // High enough for the ten-item service list to stagger fully.
+  const MAX_DELAY = 1800;
 
   const countUp = element => {
     const target = Number(element.textContent.trim());

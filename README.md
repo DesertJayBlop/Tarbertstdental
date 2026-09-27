@@ -48,6 +48,8 @@ share your own sign-in. No invitation is sent by this repository.
 
 The anniversary automatically increases on 1 January using New Zealand time.
 In **Practice & home page**, the starting year is 1897 (129 years in 2026).
+**Practice email** sets the address shown in the footer; leaving it blank keeps
+the address already built into the pages.
 Use `{years}` in the heritage introduction to keep its number in sync.
 
 ## Content and behaviour
@@ -64,7 +66,8 @@ The original booking form is restored with its name, phone, reason and comments
 fields. Configure **Callback form submission endpoint** in Sanity with an HTTPS
 service that accepts JSON (`name`, `phone`, `reason`, `comments`) and permits your
 website origin. No destination is configured yet: submitting shows an honest
-unavailable message and preserves the inputs. Success is shown only after the
+unavailable message and preserves the inputs. Until that is set up, the practice
+email address in the footer is the working route for written enquiries. Success is shown only after the
 endpoint accepts the request. No enquiries are stored in the public Sanity
 dataset. The floating **Call us** button appears at the bottom right when
 scrolling and uses the practice phone number from Sanity. Customer records and
@@ -86,11 +89,24 @@ Animation never hides content: with JavaScript unavailable, or when the visitor'
 device asks for reduced motion, every section renders in its final position and
 the scroll arrow is not shown.
 
-## GitHub Pages
+## Branches and GitHub Pages
 
-The GitHub Actions workflow in `.github/workflows/pages.yml` builds and deploys
-`dist/` on every push to `main`. Pages uses **GitHub Actions**, not the raw source
-branch. The workflow sets the Studio base path from the Pages configuration.
+`main` is the integration branch and **`production` is what goes live**. The
+workflow in `.github/workflows/pages.yml` builds and deploys `dist/` on every
+push to `production`; pushing to `main` deploys nothing. Pages uses **GitHub
+Actions**, not the raw source branch. The workflow sets the Studio base path
+from the Pages configuration.
+
+`.github/workflows/check.yml` runs the build and the full test suite on pull
+requests and on every push to `main`. It never deploys. Release by merging
+`main` into `production` once that check is green:
+
+```sh
+git checkout production && git merge --ff-only main && git push
+```
+
+Content edits made in Sanity go live immediately and need no deployment. Only
+code and schema changes need a release.
 Public content configuration and editor links resolve relative to the project,
 so `/Tarbertstdental/` and local root hosting both work. The generated `404.html`
 restores Studio deep links on Pages, which does not support rewrite rules.

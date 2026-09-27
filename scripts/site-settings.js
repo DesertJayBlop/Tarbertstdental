@@ -10,6 +10,9 @@ try{
   if(document.querySelector('.hero-copy'))document.title=s.practiceName+' | '+s.heroHeading;
   document.querySelectorAll('a[href^="tel:"]').forEach(a=>{if(/^\+?[0-9 ()-]+$/.test(s.phoneLink||''))a.href=`tel:${s.phoneLink.replace(/[ ()-]/g,'')}`;if(a.textContent.includes('03 448 8899')){const svg=a.querySelector('svg')?.cloneNode(true);a.replaceChildren();if(svg)a.append(svg);a.append(document.createTextNode(s.phone))}});
   document.querySelectorAll('.footer-contact > span').forEach(el=>el.textContent=s.address);
+  // Only override the address written into the page; an empty Sanity field
+  // leaves the footer's own email in place rather than removing it.
+  if(/^[^@\s]+@[^@\s.]+\.[^@\s]+$/.test(s.email||''))document.querySelectorAll('[data-practice-email]').forEach(a=>{a.href='mailto:'+s.email;a.textContent=s.email});
   const locationCopy=document.querySelector('.location-copy');if(locationCopy)locationCopy.querySelector('p:not(.overline)').textContent=s.address;
   const map=`https://www.google.com/maps?q=${encodeURIComponent(s.address)}`;
   document.querySelectorAll('a[href*="google.com/maps"]').forEach(a=>{a.href=map;if(a.closest('.utility-bar')){const svg=a.querySelector('svg')?.cloneNode(true);a.replaceChildren();if(svg)a.append(svg);a.append(document.createTextNode(s.address))}});
@@ -21,6 +24,6 @@ try{
   const heading=document.querySelector('.hero-copy h1');if(heading)heading.textContent=s.heroHeading;
   const lede=document.querySelector('.hero-lede');if(lede)lede.textContent=s.heroText;
   for(const [selector,key] of [['.hero-image img','heroImage'],['.team-photo img','practiceImage']]){const img=document.querySelector(selector);if(img&&safeImage(s[key])){img.src=safeImage(s[key]);img.alt=s[key+'Alt']||s.practiceName}}
-  const faqs=document.querySelector('.faq-list');if(faqs&&Array.isArray(s.faqs))faqs.innerHTML=s.faqs.map(f=>`<details><summary>${e(f.question)} <span>+</span></summary><p>${e(f.answer)}</p></details>`).join('');
+  const faqs=document.querySelector('.faq-list');if(faqs&&Array.isArray(s.faqs))faqs.innerHTML=s.faqs.map(f=>`<details data-reveal="flip"><summary>${e(f.question)} <span>+</span></summary><p>${e(f.answer)}</p></details>`).join('');
  }
 }catch{/* Static contact details remain available if the content service is unreachable. */}

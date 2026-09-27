@@ -4,7 +4,7 @@
    visible in its final position. */
 
 :root {
-  --reveal-duration: .85s;
+  --reveal-duration: 1s;
   --reveal-ease: cubic-bezier(.22, .68, .14, 1);
   --reveal-distance: 44px;
 }
@@ -111,6 +111,14 @@
   0%       { transform: scale(1); opacity: .65; }
   70%, 100%{ transform: scale(1.75); opacity: 0; }
 }
+
+/* Services arrive noticeably more slowly than the rest of the page: the list
+   is long, and letting each line drift in reads as unhurried rather than busy.
+   Tune the whole effect from these two durations. */
+.service-list [data-reveal] { --reveal-duration: 1.45s; }
+.signs-grid [data-reveal],
+.process-grid [data-reveal],
+.service-section [data-reveal] { --reveal-duration: 1.3s; }
 
 /* Small lifts that keep the page feeling responsive under the cursor. */
 .sign-card,
