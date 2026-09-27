@@ -1,0 +1,12 @@
+import {chromium} from '@playwright/test';
+const OUT='/private/tmp/claude-501/-Users-jarom-Desktop-Development-Tarbert-St-Dental-Tarbertstdental/315722ca-8f3e-40f9-bbcd-09fc0dd496f6/scratchpad/';
+const b=await chromium.launch();
+const p=await b.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:2});
+await p.goto('http://localhost:4173/Home.dc.html#book',{waitUntil:'networkidle'});
+await p.waitForTimeout(2500);
+await p.evaluate(()=>document.querySelector('#book').scrollIntoView());
+await p.waitForTimeout(1500);
+console.log('booking email:',JSON.stringify(await p.evaluate(()=>{const a=document.querySelector('.booking-email');
+ return {text:a.textContent,size:getComputedStyle(a).fontSize,family:getComputedStyle(a).fontFamily.split(',')[0]};})));
+await p.screenshot({path:OUT+'booking2.png',clip:{x:60,y:250,width:700,height:500}});
+await b.close();
