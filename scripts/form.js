@@ -29,12 +29,20 @@ if (form) {
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     body: new URLSearchParams(new FormData(form)).toString(),
     signal: AbortSignal.timeout(15000),
-    credentials: 'omit'
+    // Same-origin: the cookie must go with it. While the project is private or
+    // password protected, Netlify's access gate answers 401 without it and the
+    // submission never reaches form processing, so it lands in neither the
+    // verified nor the spam list. 'omit' was right when this posted to a
+    // third-party endpoint; it is wrong now that it posts to the site itself.
+    credentials: 'same-origin'
    });
-   if (!response.ok) throw new Error('Request was not accepted');
+   if (!response.ok) throw new Error(`Submission rejected with HTTP ${response.status}`);
    message.textContent = 'Thank you. Your callback request has been sent. The practice will contact you to arrange your visit.';
    form.reset();
-  } catch {
+  } catch (error) {
+   // Visitors get a calm message; the reason goes to the console so a failed
+   // submission can be diagnosed without guessing.
+   console.error('Callback form submission failed:', error);
    message.textContent = 'We could not confirm your request was sent. Please call the practice to book. Your details remain below.';
   } finally {
    sending = false; button.disabled = false; form.removeAttribute('aria-busy');
