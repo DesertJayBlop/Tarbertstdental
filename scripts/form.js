@@ -13,6 +13,14 @@ if (form) {
  form.addEventListener('submit', async event => {
   event.preventDefault();
   if (sending || !form.reportValidity()) return;
+  // Netlify injects the reCAPTCHA widget, and its response field, at deploy
+  // time. Check it only when it is actually present, so the form still works
+  // locally and on any host that has not injected it.
+  const captcha = form.querySelector('[name="g-recaptcha-response"]');
+  if (captcha && !captcha.value) {
+   message.textContent = 'Please confirm you are not a robot, then send your request again.';
+   return;
+  }
   sending = true; button.disabled = true; form.setAttribute('aria-busy', 'true');
   message.textContent = 'Sending your callback request…';
   try {

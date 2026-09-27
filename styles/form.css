@@ -3,3 +3,7 @@
 /* Honeypot: bots fill it in, people never see it. Not display:none, which
    some bots detect and skip. */
 .form-bot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* Netlify injects the reCAPTCHA widget here at deploy time; it is a fixed
+   304px, so shrink it rather than let it overflow the form card. */
+.form-captcha:empty{display:none}
+@media(max-width:420px){.form-captcha{transform:scale(.85);transform-origin:left top;height:65px}}
