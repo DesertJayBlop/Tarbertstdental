@@ -1,0 +1,35 @@
+{
+  "practiceName": "Tarbert Street Dental",
+  "phone": "03 448 8899",
+  "phoneLink": "+6434488899",
+  "address": "56 Tarbert Street, Alexandra 9320",
+  "hours": "Mon–Thu · 8am–5pm; Friday · 8am–4pm; Saturday–Sunday · Closed",
+  "heroHeading": "Dentistry that puts you at ease.",
+  "heroText": "Warm, unhurried dentistry in the heart of Central Otago. Four modern surgeries behind a historic Alexandra stone facade, and a team that has looked after these smiles for generations.",
+  "heroImage": "assets/hero-clinic.jpg",
+  "heroImageAlt": "Alexandra and the Clutha River, Central Otago",
+  "practiceImage": "assets/team-illustration.svg",
+  "practiceImageAlt": "Illustration of the Tarbert Street Dental team at the practice reception",
+  "faqs": [
+    {
+      "question": "I have put off the dentist for years. Will I get a lecture?",
+      "answer": "No. Plenty of our patients arrive after a long gap and most are nervous about it. We start with a proper look and a chat, sort out anything urgent, then work through the rest at a pace that suits you and your budget."
+    },
+    {
+      "question": "Can I really get a crown in one appointment?",
+      "answer": "Yes. With CEREC we scan the tooth, design the crown on screen and mill it from a ceramic block here in the surgery, then fit it the same day. Most appointments run one to two hours."
+    },
+    {
+      "question": "What does it cost, and how do I pay?",
+      "answer": "You get a written estimate before any treatment starts, so there are no surprises. We accept cash, major cards, Eftpos, bank transfer and Q Card."
+    },
+    {
+      "question": "Do you see children and teenagers?",
+      "answer": "We do, and we love it. We are happy to book families in back to back so it is one trip into town."
+    }
+  ],
+  "heritageHeading": "New Zealand’s oldest dental practice.",
+  "heritageText": "{years} years of caring for our community. A proud history, familiar faces, and modern dentistry — right here in Alexandra.",
+  "instagramHandle": "TSDS_2018",
+  "heritageStartYear": 1897
+}

@@ -2,7 +2,7 @@
    One source of truth for the utility bar, header and mobile menu on every page.
    Loaded as a plain (non-module) script directly after <div data-site-nav></div>
    so the header is in place before the rest of the page paints. */
-(function () {
+(async function () {
   var HOME = 'Home.dc.html';
   var PHONE_TEXT = '03 448 8899';
   var PHONE_HREF = 'tel:+6434488899';
@@ -10,14 +10,10 @@
 
   /* Add a service here and it appears in the desktop dropdown and the mobile
      menu on every page. Leave off `href` while the page is still being built. */
-  var SERVICES = [
-    { title: 'CEREC same-day crowns', href: 'Service-CEREC-Crowns.dc.html' },
-    { title: 'Root canal treatment', href: 'Service-Root-Canal.dc.html' },
-    { title: 'Emergency treatment &amp; ACC' },
-    { title: 'General dentistry' },
-    { title: 'Hygiene' },
-    { title: 'Dental implants' }
-  ];
+  const {getContent,serviceHref}=await import('./content.js');
+  const {escapeHtml}=await import('./support.js');
+  var SERVICES=[];
+  try { const content=await getContent(); SERVICES=content.services.map(s=>({title:escapeHtml(s.title),href:serviceHref(s)})); } catch {}
 
   var page = decodeURIComponent(location.pathname.split('/').pop() || '');
   if (!page || page === 'index.html') page = HOME;
@@ -61,7 +57,7 @@
     '<a class="skip-link" href="#main">Skip to content</a>' +
     '<div class="utility-bar">' +
       '<a href="' + PHONE_HREF + '">' + icon('phone') + '<span>' + PHONE_TEXT + '</span></a>' +
-      '<span>' + icon('clock') + 'Mon–Fri 8:30am–5pm</span>' +
+      '<span>' + icon('clock') + 'Mon–Thu 8am–5pm · Fri 8am–4pm</span>' +
       '<a href="' + MAP_HREF + '" target="_blank" rel="noopener">' + icon('pin') + '56 Tarbert Street, Alexandra</a>' +
     '</div>' +
     '<header class="site-header" data-header>' +
@@ -161,4 +157,6 @@
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+  document.dispatchEvent(new Event('site-nav-ready'));
+  import('./site-settings.js');
 })();

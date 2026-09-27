@@ -278,3 +278,5 @@
   .logo-link img { height: 39px; }
   .round-action { width: 39px; height: 39px; }
 }
+
+.site-footer a.instagram-link{display:inline-flex;align-items:center;gap:9px;font-size:14px;margin:10px 0 16px;color:inherit}.instagram-link svg{flex:none}.instagram-link:hover{text-decoration:underline}.instagram-link:focus-visible{outline:2px solid currentColor;outline-offset:5px}.instagram-link[hidden]{display:none!important}

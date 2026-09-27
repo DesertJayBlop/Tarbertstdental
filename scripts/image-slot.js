@@ -1,2 +1,2 @@
-export function loadImages(){document.querySelectorAll('[data-image]').forEach((image)=>{const key=`tarbertDentalImage:${image.dataset.image}`;const saved=localStorage.getItem(key);if(saved)image.src=saved})}
-export function saveImage(key,dataUrl){localStorage.setItem(`tarbertDentalImage:${key}`,dataUrl)}
+// Website imagery is managed in Sanity Studio under Practice & home page.
+export async function loadImages(){await import('./site-settings.js')}

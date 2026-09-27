@@ -202,6 +202,12 @@ cython_debug/
 # .vscode/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
+node_modules/
+.sanity/
+.env.*
+!.env.example
+backups/
+test-results/
 
 # Ruff stuff:
 .ruff_cache/

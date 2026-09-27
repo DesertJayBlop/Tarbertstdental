@@ -1,0 +1,338 @@
+{
+  "staff": [
+    {
+      "id": "yu-ishikawa-ishi",
+      "name": "Yu Ishikawa (Ishi)",
+      "role": "Practice owner / lead dentist",
+      "photo": "assets/dentist-ishi.jpg",
+      "teaser": "BDS Otago 2012. Oral surgery experience from Hutt Hospital, now settled in Alexandra.",
+      "bio": "Ishi is the practice owner and lead dentist at Tarbert Street Dental. He brings a calm, thorough approach to every consultation, with particular experience in oral surgery and restorative care.",
+      "expertise": [
+        "CEREC crowns",
+        "Oral surgery",
+        "Implants"
+      ],
+      "group": "dentists",
+      "order": 0,
+      "visible": true
+    },
+    {
+      "id": "kayla-sleight",
+      "name": "Kayla Sleight",
+      "role": "Dentist",
+      "photo": "assets/dentist-kayla.jpg",
+      "teaser": "Raised in Utah, now calls New Zealand home. Particularly good with anxious patients.",
+      "bio": "Kayla is passionate about helping patients feel informed and comfortable. Her gentle communication style makes her a wonderful fit for nervous patients and families.",
+      "expertise": [
+        "Anxious patients",
+        "Preventative care",
+        "Family dentistry"
+      ],
+      "group": "dentists",
+      "order": 1,
+      "visible": true
+    },
+    {
+      "id": "chanelle-gibson",
+      "name": "Chanelle Gibson",
+      "role": "Dentist",
+      "photo": "assets/dentist-chanelle.jpg",
+      "teaser": "BDS Otago 2019. High-quality care paired with real patient education.",
+      "bio": "Chanelle is committed to high-quality care and practical patient education. She enjoys helping people understand their options and feel confident about their treatment.",
+      "expertise": [
+        "CEREC crowns",
+        "Oral surgery",
+        "Preventative dentistry"
+      ],
+      "group": "dentists",
+      "order": 2,
+      "visible": true
+    },
+    {
+      "id": "bruce-jiang",
+      "name": "Bruce Jiang",
+      "role": "Dentist",
+      "photo": "assets/dentist-bruce.jpg",
+      "teaser": "BDS Otago 2022. Thorough consultations and minimally invasive dentistry.",
+      "bio": "Bruce values thorough consultations and minimally invasive dentistry. He takes the time to make sure patients feel well informed, comfortable and confident in their care.",
+      "expertise": [
+        "CEREC crowns",
+        "Oral surgery",
+        "Minimally invasive care"
+      ],
+      "group": "dentists",
+      "order": 3,
+      "visible": true
+    },
+    {
+      "id": "emma",
+      "name": "Emma",
+      "role": "Dental hygienist / therapist",
+      "photo": "assets/staff-emma.jpg",
+      "teaser": "A gentle, caring clinician passionate about creating beautiful smiles.",
+      "bio": "Emma is passionate about helping create beautiful smiles within the community. She is a gentle and caring clinician with great advice to share with her patients.",
+      "expertise": [
+        "Hygiene",
+        "Oral health advice"
+      ],
+      "group": "hygienists",
+      "order": 4,
+      "visible": true
+    },
+    {
+      "id": "tori",
+      "name": "Tori",
+      "role": "Dental hygienist / therapist",
+      "photo": "assets/staff-tori.jpg",
+      "teaser": "Thoughtful preventive care and a calm approach to every clean.",
+      "bio": "Tori brings a calm, encouraging approach to preventive care and enjoys helping patients build habits that last.",
+      "expertise": [
+        "Hygiene",
+        "Preventative care"
+      ],
+      "group": "hygienists",
+      "order": 5,
+      "visible": true
+    },
+    {
+      "id": "mekah",
+      "name": "Mekah",
+      "role": "Dental hygienist / therapist",
+      "photo": "assets/staff-mekah.jpg",
+      "teaser": "Friendly, practical oral health support for the whole family.",
+      "bio": "Mekah helps patients of all ages feel comfortable during their hygiene visits and leave with clear, useful advice.",
+      "expertise": [
+        "Hygiene",
+        "Family care"
+      ],
+      "group": "hygienists",
+      "order": 6,
+      "visible": true
+    }
+  ],
+  "services": [
+    {
+      "id": "cerec-same-day-crowns",
+      "title": "CEREC same-day crowns",
+      "legacyUrl": "Service-CEREC-Crowns.dc.html",
+      "order": 0,
+      "visible": true,
+      "hasExistingPage": true,
+      "page": {
+        "heading": "CEREC same-day crowns.",
+        "category": "Restorative dentistry",
+        "summary": "A strong, natural-looking crown designed, made and fitted in a single visit. Less waiting, fewer appointments, more time getting on with life.",
+        "image": "assets/cerec.jpg",
+        "imageAlt": "CEREC dental technology in the Tarbert Street Dental practice",
+        "sections": [
+          {
+            "eyebrow": "How it works",
+            "title": "Your new crown, without the waiting room.",
+            "paragraphs": [
+              "CEREC uses digital scanning and precision milling to create a beautiful ceramic crown while you are here. We can match the shape and shade to your smile, then bond it in place before you leave.",
+              "There is no temporary crown to manage and no second appointment weeks later. Just one calm, carefully planned visit with your usual dental team."
+            ],
+            "cards": [],
+            "layout": "text",
+            "softBackground": false
+          },
+          {
+            "eyebrow": "Why patients choose CEREC",
+            "title": "Modern technology, familiar care.",
+            "paragraphs": [],
+            "cards": [
+              {
+                "title": "One appointment",
+                "text": "Designed and fitted in the same visit, so your schedule stays simple.",
+                "icon": "calendar",
+                "step": ""
+              },
+              {
+                "title": "Natural result",
+                "text": "High-quality ceramic shaped and shaded to look at home in your smile.",
+                "icon": "check",
+                "step": ""
+              },
+              {
+                "title": "Less waiting",
+                "text": "No temporary crown and no return trip to finish your treatment.",
+                "icon": "clock",
+                "step": ""
+              },
+              {
+                "title": "Clear advice",
+                "text": "We explain your options and make sure you feel comfortable at every step.",
+                "icon": "phone",
+                "step": ""
+              }
+            ],
+            "layout": "cards",
+            "softBackground": true
+          }
+        ],
+        "callToAction": {
+          "eyebrow": "Thinking about a crown?",
+          "title": "Let’s talk it through.",
+          "text": "We can tell you whether CEREC is right for your tooth and your goals."
+        }
+      }
+    },
+    {
+      "id": "root-canal-treatment",
+      "title": "Root canal treatment",
+      "legacyUrl": "Service-Root-Canal.dc.html",
+      "order": 1,
+      "visible": true,
+      "hasExistingPage": true,
+      "page": {
+        "heading": "Root canal treatment.",
+        "category": "Endodontic treatment",
+        "summary": "Gentle, thorough care to relieve pain and save a damaged or infected tooth, so you keep your natural smile.",
+        "image": "assets/root-canal-illustration.svg",
+        "imageAlt": "Illustration of a tooth in cross-section showing the cleaned and sealed root canals inside it",
+        "sections": [
+          {
+            "eyebrow": "A calmer approach",
+            "title": "What is root canal treatment?",
+            "paragraphs": [
+              "When decay or injury reaches the soft pulp inside a tooth, it can become infected and painful. Root canal treatment removes the infected pulp, cleans and shapes the inner canal, and seals it to stop infection returning, saving the tooth rather than removing it.",
+              "We know root canal treatment has a reputation, so we take extra care with anaesthetic and pacing, especially for anxious patients. Most people are surprised at how comfortable the appointment is compared to what they expected."
+            ],
+            "cards": [],
+            "layout": "text",
+            "softBackground": false
+          },
+          {
+            "eyebrow": "Signs to look out for",
+            "title": "It may be time to call us.",
+            "paragraphs": [],
+            "cards": [
+              {
+                "title": "Persistent tooth pain",
+                "text": "Especially pain that lingers after hot or cold food.",
+                "icon": "phone",
+                "step": ""
+              },
+              {
+                "title": "Swelling or tenderness",
+                "text": "Gums that are swollen, sore, or tender to touch nearby.",
+                "icon": "pin",
+                "step": ""
+              },
+              {
+                "title": "Darkening tooth",
+                "text": "A tooth that looks darker than those beside it.",
+                "icon": "clock",
+                "step": ""
+              },
+              {
+                "title": "Save your natural tooth",
+                "text": "A far better outcome long-term than extraction.",
+                "icon": "check",
+                "step": ""
+              }
+            ],
+            "layout": "cards",
+            "softBackground": true
+          },
+          {
+            "eyebrow": "The appointment",
+            "title": "Three clear steps.",
+            "paragraphs": [],
+            "cards": [
+              {
+                "title": "Numb & assess",
+                "text": "The area is fully numbed and we take an X-ray to see the canal shape.",
+                "icon": "",
+                "step": "01"
+              },
+              {
+                "title": "Clean & shape",
+                "text": "The infected pulp is removed and the canal is cleaned and shaped.",
+                "icon": "",
+                "step": "02"
+              },
+              {
+                "title": "Seal & restore",
+                "text": "The canal is sealed and the tooth restored, often with a crown for lasting strength.",
+                "icon": "",
+                "step": "03"
+              }
+            ],
+            "layout": "steps",
+            "softBackground": false
+          }
+        ],
+        "callToAction": {
+          "eyebrow": "In pain or worried?",
+          "title": "Let’s make a plan.",
+          "text": "Call us or send a message and we’ll find a time that works."
+        }
+      }
+    },
+    {
+      "id": "emergency-treatment-acc",
+      "title": "Emergency treatment & ACC",
+      "legacyUrl": null,
+      "order": 2,
+      "visible": true,
+      "hasExistingPage": false
+    },
+    {
+      "id": "general-dentistry",
+      "title": "General dentistry",
+      "legacyUrl": null,
+      "order": 3,
+      "visible": true,
+      "hasExistingPage": false
+    },
+    {
+      "id": "hygiene",
+      "title": "Hygiene",
+      "legacyUrl": null,
+      "order": 4,
+      "visible": true,
+      "hasExistingPage": false
+    },
+    {
+      "id": "dental-implants",
+      "title": "Dental implants",
+      "legacyUrl": null,
+      "order": 5,
+      "visible": true,
+      "hasExistingPage": false
+    },
+    {
+      "id": "iv-sedation",
+      "title": "IV sedation",
+      "legacyUrl": null,
+      "order": 6,
+      "visible": true,
+      "hasExistingPage": false
+    },
+    {
+      "id": "anti-wrinkle-botulinum-toxin",
+      "title": "Anti-wrinkle / botulinum toxin",
+      "legacyUrl": null,
+      "order": 7,
+      "visible": true,
+      "hasExistingPage": false
+    },
+    {
+      "id": "clear-aligners",
+      "title": "Clear aligners",
+      "legacyUrl": null,
+      "order": 8,
+      "visible": true,
+      "hasExistingPage": false
+    },
+    {
+      "id": "home-care-tips",
+      "title": "Home care tips",
+      "legacyUrl": null,
+      "order": 9,
+      "visible": true,
+      "hasExistingPage": false
+    }
+  ]
+}

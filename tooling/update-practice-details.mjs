@@ -1,0 +1,10 @@
+import {getCliClient} from 'sanity/cli';
+const client=getCliClient({apiVersion:'2026-09-01'});
+const updates={"hours": "Mon–Thu · 8am–5pm; Friday · 8am–4pm; Saturday–Sunday · Closed", "heritageStartYear": 1897, "heritageHeading": "New Zealand’s oldest dental practice.", "heritageText": "{years} years of caring for our community. A proud history, familiar faces, and modern dentistry — right here in Alexandra.", "instagramHandle": "TSDS_2018"};
+const published=await client.getDocument('siteSettings');
+if(!published)throw new Error('Practice settings do not exist.');
+const draft=await client.getDocument('drafts.siteSettings');
+let transaction=client.transaction().patch('siteSettings',p=>p.ifRevisionId(published._rev).set(updates));
+if(draft)transaction=transaction.patch('drafts.siteSettings',p=>p.ifRevisionId(draft._rev).set(updates));
+await transaction.commit();
+console.log('Published updated hours, heritage feature and Instagram.');
