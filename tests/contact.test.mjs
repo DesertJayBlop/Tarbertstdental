@@ -19,15 +19,29 @@ test('floating call button works before asynchronous navigation arrives',async()
   await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));await button.waitFor({state:'hidden'});
  }finally{await browser.close()}
 });
-test('restored form retains input on unavailable delivery and only succeeds after acceptance',async()=>{
+test('callback form posts a Netlify form submission and only succeeds after acceptance',async()=>{
  const browser=await chromium.launch();const page=await browser.newPage();
- let endpoint='';let status=503;let submitted;
+ let status=503;let submitted;
  try{
-  await page.route('https://*.sanity.io/**',r=>r.fulfill({json:{result:{staff:[],services:[],settings:{callbackEndpoint:endpoint}}}}));
-  await page.route('https://forms.example.test/callback',async r=>{submitted=r.request().postDataJSON();await r.fulfill({status,json:{ok:status===200}})});
+  await page.route('https://*.sanity.io/**',r=>r.fulfill({json:{result:{staff:[],services:[],settings:null}}}));
+  // Netlify accepts the submission at the site root; locally nothing serves POST.
+  await page.route(base+'/',async r=>{
+   if(r.request().method()!=='POST')return r.continue();
+   submitted=new URLSearchParams(r.request().postData()||'');
+   await r.fulfill({status,body:''});
+  });
   async function fill(){await page.goto(base+'/Home.dc.html#book');await page.reload();await page.getByLabel('Your name').fill('Website test');await page.getByLabel('Phone number').fill('020 000 0000');await page.getByLabel('Email address').fill('website.test@example.test');await page.getByLabel('Anything we should know?').fill('Test only');}
-  await fill();await page.getByRole('button',{name:'Request a callback'}).click();await page.getByText('Your details have not been sent.',{exact:false}).waitFor();assert.equal(submitted,undefined);assert.equal(await page.getByLabel('Your name').inputValue(),'Website test');
-  endpoint='https://forms.example.test/callback';await fill();await page.getByRole('button',{name:'Request a callback'}).click();await page.getByText('We could not confirm your request was sent.',{exact:false}).waitFor();assert.equal(await page.getByLabel('Your name').inputValue(),'Website test');
-  status=200;await page.getByRole('button',{name:'Request a callback'}).click();await page.getByText('Your callback request has been sent.',{exact:false}).waitFor();assert.equal(submitted.phone,'020 000 0000');assert.equal(submitted.email,'website.test@example.test');assert.equal(await page.getByLabel('Your name').inputValue(),'');
+  await fill();await page.getByRole('button',{name:'Request a callback'}).click();
+  await page.getByText('We could not confirm your request was sent.',{exact:false}).waitFor();
+  assert.equal(await page.getByLabel('Your name').inputValue(),'Website test');
+  status=200;await page.getByRole('button',{name:'Request a callback'}).click();
+  await page.getByText('Your callback request has been sent.',{exact:false}).waitFor();
+  // Netlify identifies the form by this field and rejects unknown field names.
+  assert.equal(submitted.get('form-name'),'callback-request');
+  assert.equal(submitted.get('name'),'Website test');
+  assert.equal(submitted.get('phone'),'020 000 0000');
+  assert.equal(submitted.get('email'),'website.test@example.test');
+  assert.equal(submitted.get('bot-field'),'');
+  assert.equal(await page.getByLabel('Your name').inputValue(),'');
  }finally{await browser.close()}
 });

@@ -222,3 +222,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Netlify CLI link state
+.netlify
+
+# Netlify agent skills: vendored tooling, reinstallable from skills-lock.json
+# with: npx -y skills add netlify/context-and-tools --skill "*" --yes
+.claude/skills/

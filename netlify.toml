@@ -1,0 +1,10 @@
+# Netlify build for the public site and Sanity Studio.
+# The site is served from the domain root here, so the Studio base path is the
+# default /studio and tooling/build-site.mjs writes dist/_redirects, which
+# Netlify uses to keep Studio deep links working.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
