@@ -70,6 +70,19 @@ dataset. The floating **Call us** button appears at the bottom right when
 scrolling and uses the practice phone number from Sanity. Customer records and
 appointment scheduling remain outside today's scope.
 
+## GitHub Pages
+
+The GitHub Actions workflow in `.github/workflows/pages.yml` builds and deploys
+`dist/` on every push to `main`. Pages uses **GitHub Actions**, not the raw source
+branch. The workflow sets the Studio base path from the Pages configuration.
+Public content configuration and editor links resolve relative to the project,
+so `/Tarbertstdental/` and local root hosting both work. The generated `404.html`
+restores Studio deep links on Pages, which does not support rewrite rules.
+
+The production Sanity CORS origin is `https://desertjayblop.github.io` with
+credentials enabled for invited Studio users. CORS origins contain no path.
+The build has no write token and only publishes site files, not tooling/backups.
+
 ## Hosting and handoff
 
 `npm run build` creates **dist/** with the public site and compiled Studio. Deploy
@@ -85,8 +98,7 @@ free plan's quotas. Hosting/domain costs depend on the host you choose.
   this dataset. It contains website content only.
 - The original site's `noindex` tags and `robots.txt` block indexing; remove those
   intentionally when the client approves public launch.
-- Confirm client access, final domain/CORS and backups before handoff. Production
-  hosting has not been changed by this implementation.
+- Confirm client access, final domain/CORS and backups before handoff. GitHub Pages is configured by the workflow above.
 
 ## Backups and maintenance
 

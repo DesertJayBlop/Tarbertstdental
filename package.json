@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node tooling/build-site.mjs && sanity build dist/studio -y",
+    "build": "node tooling/build-site.mjs && sanity build dist/studio -y && node tooling/finish-build.mjs",
     "start": "node tooling/serve.mjs",
     "dev": "npm run build && npm start",
     "studio": "sanity dev",

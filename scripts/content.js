@@ -7,7 +7,7 @@ export const query = `{
 let pending;
 export function getContent() {
  return pending ??= (async()=>{
-  const configResponse=await fetch('/data/sanity-config.json');
+  const configResponse=await fetch(new URL('../data/sanity-config.json',import.meta.url));
   if(!configResponse.ok) throw new Error('Website content configuration is unavailable.');
   const config=await configResponse.json();
   if(!/^[a-z0-9]+$/.test(config.projectId)||!/^[a-z0-9_-]+$/.test(config.dataset)) throw new Error('Website content is not configured.');
