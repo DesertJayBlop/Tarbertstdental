@@ -70,6 +70,22 @@ dataset. The floating **Call us** button appears at the bottom right when
 scrolling and uses the practice phone number from Sanity. Customer records and
 appointment scheduling remain outside today's scope.
 
+## Animation
+
+`styles/animations.css` and `scripts/reveal.js` add the scroll animations. Each
+section flies in as it comes into view, the anniversary number counts up, and a
+bobbing arrow at the bottom of the home page invites the first scroll.
+
+To animate something new, add `data-reveal` to the element with one of `up`,
+`down`, `left`, `right`, `zoom`, `flip` or `fade`. Put `data-reveal-stagger="110"`
+on a parent to bring its children in one after another, or
+`data-reveal-delay="200"` on a single element. Content that arrives from Sanity
+is picked up automatically. Nothing else is needed and there is no library.
+
+Animation never hides content: with JavaScript unavailable, or when the visitor's
+device asks for reduced motion, every section renders in its final position and
+the scroll arrow is not shown.
+
 ## GitHub Pages
 
 The GitHub Actions workflow in `.github/workflows/pages.yml` builds and deploys

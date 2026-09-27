@@ -1,0 +1,149 @@
+/* Scroll-reveal animations and the hero scroll cue.
+   Load after the page stylesheet. Nothing here is required to read the site:
+   without JavaScript, or with reduced motion requested, every element stays
+   visible in its final position. */
+
+:root {
+  --reveal-duration: .85s;
+  --reveal-ease: cubic-bezier(.22, .68, .14, 1);
+  --reveal-distance: 44px;
+}
+
+/* Anchor targets clear the sticky header and utility bar. */
+:where([id]) { scroll-margin-top: 116px; }
+
+/* scripts/reveal.js adds .js-reveal to <html> before first paint, so hidden
+   start states only ever apply when something is there to reveal them. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease) var(--reveal-delay, 0ms),
+    transform var(--reveal-duration) var(--reveal-ease) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.js-reveal [data-reveal="down"]  { transform: translate3d(0, calc(var(--reveal-distance) * -1), 0); }
+.js-reveal [data-reveal="left"]  { transform: translate3d(calc(var(--reveal-distance) * -1.5), 0, 0); }
+.js-reveal [data-reveal="right"] { transform: translate3d(calc(var(--reveal-distance) * 1.5), 0, 0); }
+.js-reveal [data-reveal="zoom"]  { transform: scale(.84); }
+.js-reveal [data-reveal="flip"]  { transform: perspective(900px) rotateX(14deg) translate3d(0, 30px, 0); transform-origin: top center; }
+.js-reveal [data-reveal="fade"]  { transform: none; }
+
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Hero scroll cue ------------------------------------------------------ */
+/* Pinned to the bottom of the viewport so it is always the visible next step,
+   whatever the screen height, and retired as soon as the visitor takes it. */
+.scroll-cue { display: none; }
+.js-cue .scroll-cue {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 26px;
+  z-index: 28;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  transition: opacity .45s ease, transform .45s ease, visibility 0s .45s;
+}
+.js-cue .scroll-cue.is-gone {
+  opacity: 0;
+  transform: translateY(18px);
+  visibility: hidden;
+}
+.scroll-cue a {
+  pointer-events: auto;
+  animation: cue-enter .9s var(--reveal-ease) 1s both;
+  display: inline-flex;
+  padding: 6px;
+  border-radius: 50%;
+}
+.scroll-cue a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+/* White-filled so the cue stays legible over the hero and over the dark
+   heritage panel it can float above on shorter screens. */
+.scroll-cue i {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy);
+  box-shadow: 0 10px 26px rgba(20, 33, 61, .22);
+  animation: cue-bob 1.6s ease-in-out infinite;
+}
+/* A quiet ripple, so the cue reads as an invitation rather than a button. */
+.scroll-cue i::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  animation: cue-ring 2.4s ease-out infinite;
+}
+.scroll-cue svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.scroll-cue a:hover i { background: var(--navy); color: #fff; }
+
+@keyframes cue-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes cue-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(11px); }
+}
+@keyframes cue-ring {
+  0%       { transform: scale(1); opacity: .65; }
+  70%, 100%{ transform: scale(1.75); opacity: 0; }
+}
+
+/* Small lifts that keep the page feeling responsive under the cursor. */
+.sign-card,
+.process-card {
+  transition: transform .25s var(--reveal-ease), box-shadow .25s var(--reveal-ease), border-color .25s;
+}
+.sign-card:hover,
+.process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(20, 33, 61, .1);
+  border-color: var(--blue);
+}
+.service-item a { transition: color .2s; }
+.service-item:hover a { color: var(--terracotta); }
+.service-item span { transition: transform .25s var(--reveal-ease); }
+.service-item:hover span { transform: translateX(6px); }
+
+@media (max-width: 900px) {
+  :root { --reveal-distance: 30px; }
+  .scroll-cue { bottom: 18px; }
+}
+
+/* Honour the operating system's reduced-motion setting: no travel, no bob. */
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal [data-reveal],
+  .js-reveal [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .scroll-cue a { animation: none; }
+  .scroll-cue i,
+  .scroll-cue i::before { animation: none; }
+  .scroll-cue i::before { opacity: .5; }
+  html { scroll-behavior: auto; }
+}
