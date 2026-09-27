@@ -6,7 +6,7 @@ test('floating call button works before asynchronous navigation arrives',async()
  const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:390,height:844}});
  try{
   // Hold content indefinitely to reproduce the missing-header initialization race.
-  await page.route('https://*.api.sanity.io/**',()=>{});
+  await page.route('https://*.sanity.io/**',()=>{});
   await page.goto(base+'/Home.dc.html');
   const button=page.locator('[data-floating-book]');
   assert.equal(await button.getAttribute('tabindex'),'-1');
@@ -23,7 +23,7 @@ test('restored form retains input on unavailable delivery and only succeeds afte
  const browser=await chromium.launch();const page=await browser.newPage();
  let endpoint='';let status=503;let submitted;
  try{
-  await page.route('https://*.api.sanity.io/**',r=>r.fulfill({json:{result:{staff:[],services:[],settings:{callbackEndpoint:endpoint}}}}));
+  await page.route('https://*.sanity.io/**',r=>r.fulfill({json:{result:{staff:[],services:[],settings:{callbackEndpoint:endpoint}}}}));
   await page.route('https://forms.example.test/callback',async r=>{submitted=r.request().postDataJSON();await r.fulfill({status,json:{ok:status===200}})});
   async function fill(){await page.goto(base+'/Home.dc.html#book');await page.reload();await page.getByLabel('Your name').fill('Website test');await page.getByLabel('Phone number').fill('020 000 0000');await page.getByLabel('Email address').fill('website.test@example.test');await page.getByLabel('Anything we should know?').fill('Test only');}
   await fill();await page.getByRole('button',{name:'Request a callback'}).click();await page.getByText('Your details have not been sent.',{exact:false}).waitFor();assert.equal(submitted,undefined);assert.equal(await page.getByLabel('Your name').inputValue(),'Website test');

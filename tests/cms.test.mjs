@@ -37,7 +37,7 @@ test('new content renders safely and removed services do not fall back to old co
  const browser=await chromium.launch();const page=await browser.newPage();
  const result={staff:[{_id:'new-person',name:'<img src=x onerror=alert(1)>',role:'Test',group:'support',bio:'New biography',expertise:['<script>bad</script>']}],services:[{title:'New service',slug:'new-service',hasPage:true,heading:'A new service',summary:'Created in the CMS',sections:[{title:'New section',layout:'text',paragraphs:['Fresh content']}]}],settings:null};
  try{
-  await page.route('https://*.api.sanity.io/**',route=>route.fulfill({json:{result}}));
+  await page.route('https://*.sanity.io/**',route=>route.fulfill({json:{result}}));
   await page.goto(base+'/Home.dc.html');await page.getByRole('link',{name:'New service',exact:true}).first().waitFor();assert.equal(await page.locator('[data-services] a').count(),1);
   await page.locator('[data-services] a').click();await page.getByRole('heading',{name:'A new service'}).waitFor();assert.equal(await page.getByText('Fresh content').count(),1);
   await page.goto(base+'/About.dc.html');await page.locator('.person-card').waitFor();assert.equal(await page.locator('.person-card img').count(),0);assert.equal(await page.locator('.person-card h3').textContent(),result.staff[0].name);

@@ -11,7 +11,9 @@ export function getContent() {
   if(!configResponse.ok) throw new Error('Website content configuration is unavailable.');
   const config=await configResponse.json();
   if(!/^[a-z0-9]+$/.test(config.projectId)||!/^[a-z0-9_-]+$/.test(config.dataset)) throw new Error('Website content is not configured.');
-  const url=new URL(`https://${config.projectId}.api.sanity.io/v${config.apiVersion}/data/query/${config.dataset}`);
+  // apicdn is Sanity's cached endpoint for published content: a larger request
+  // quota than api.sanity.io and faster pages. Edits appear within a minute.
+  const url=new URL(`https://${config.projectId}.apicdn.sanity.io/v${config.apiVersion}/data/query/${config.dataset}`);
   url.searchParams.set('query',query);url.searchParams.set('perspective','published');
   const response=await fetch(url,{signal:AbortSignal.timeout(10000)});
   if(!response.ok) throw new Error('Website content is temporarily unavailable.');

@@ -27,7 +27,8 @@ No write token is included in the public website.
    Sanity account.
 2. Choose **Staff**, **Services**, or **Practice & home page**.
 3. Edit content, upload photos, and use **Publish** when ready. Saved drafts are
-   not public. Refresh the website to see published changes.
+   not public. Refresh the website to see published changes; the content CDN
+   caches for up to a minute, so allow a moment before checking.
 4. For staff, select the correct team group and set **Display order** (lower
    numbers first). **Show on website** hides a record without deleting it.
 5. For a service, generate its **Page URL**, add the introduction and page
@@ -59,7 +60,8 @@ pages, home imagery, contact details, opening hours and FAQs. Eight services had
 no detail pages in the original site; they remain contact links until the client
 adds page copy. Static decorative layout and some marketing text remain in HTML.
 
-The public site reads only published, visible records and never writes content.
+The public site reads published, visible records from `apicdn.sanity.io`, the
+cached endpoint, and never writes content.
 Unpublished/deleted service pages show an unavailable message rather than old
 copy. API failures show a clear message; static contact details remain available.
 The original booking form is restored with its name, phone, reason and comments

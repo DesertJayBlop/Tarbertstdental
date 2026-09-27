@@ -23,7 +23,7 @@ test('project-subdirectory hosting loads CMS configuration and keeps links insid
  try{
   const fixture=JSON.parse(await readFile('migration/existing-content.json','utf8'));
   const result={settings:null,staff:fixture.staff.map(p=>({...p,_id:p.id})),services:fixture.services.map(s=>({...s,slug:s.id,hasPage:s.hasExistingPage,...s.page}))};
-  await page.route('https://*.api.sanity.io/**/data/query/**',r=>r.fulfill({json:{result}}));
+  await page.route('https://*.sanity.io/**/data/query/**',r=>r.fulfill({json:{result}}));
   await page.goto(base+'Home.dc.html');await page.locator('[data-services] a').first().waitFor();
   assert.equal(await page.locator('[data-services] a').count(),10);
   assert.ok(requests.includes(prefix+'data/sanity-config.json'));
