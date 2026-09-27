@@ -42,4 +42,4 @@ jobs:
           curl -sfo /dev/null http://localhost:4173/Home.dc.html || {
             echo "Local server did not start"; exit 1;
           }
-          npm test
+          SKIP_STUDIO_LOGIN_UI=1 npm test
