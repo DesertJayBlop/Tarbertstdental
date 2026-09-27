@@ -16,7 +16,7 @@ if(form){
    const url=new URL(endpoint);
    if(url.protocol!=='https:'||url.username||url.password)throw new Error('Invalid submission endpoint');
    const data=new FormData(form);
-   const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:String(data.get('name')||'').trim(),phone:String(data.get('phone')||'').trim(),reason:String(data.get('reason')||''),comments:String(data.get('comments')||'').trim()}),signal:AbortSignal.timeout(15000),credentials:'omit'});
+   const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:String(data.get('name')||'').trim(),phone:String(data.get('phone')||'').trim(),email:String(data.get('email')||'').trim(),reason:String(data.get('reason')||''),comments:String(data.get('comments')||'').trim()}),signal:AbortSignal.timeout(15000),credentials:'omit'});
    if(!response.ok)throw new Error('Request was not accepted');
    message.textContent='Thank you. Your callback request has been sent. The practice will contact you to arrange your visit.';
    form.reset();

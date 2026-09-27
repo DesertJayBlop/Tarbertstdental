@@ -64,7 +64,7 @@ Unpublished/deleted service pages show an unavailable message rather than old
 copy. API failures show a clear message; static contact details remain available.
 The original booking form is restored with its name, phone, reason and comments
 fields. Configure **Callback form submission endpoint** in Sanity with an HTTPS
-service that accepts JSON (`name`, `phone`, `reason`, `comments`) and permits your
+service that accepts JSON (`name`, `phone`, `email`, `reason`, `comments`) and permits your
 website origin. No destination is configured yet: submitting shows an honest
 unavailable message and preserves the inputs. Until that is set up, the practice
 email address in the footer is the working route for written enquiries. Success is shown only after the
