@@ -115,6 +115,16 @@ restores Studio deep links on Pages, which does not support rewrite rules.
 
 The production Sanity CORS origin is `https://desertjayblop.github.io` with
 credentials enabled for invited Studio users. CORS origins contain no path.
+
+Sanity allowlists by exact origin, and every Netlify branch deploy and Deploy
+Preview gets its own hostname, so content would fail to load on all of them.
+The wildcard `https://*--keen-dasik-1a20b8.netlify.app` covers them, added
+**without credentials**: previews read published content anonymously, which is
+public regardless, but cannot make a credentialed request as a signed-in Studio
+user. Only the exact site origin carries credentials, so Studio signs in there
+and not on a preview. The wildcard is scoped to this project's subdomain — it
+does not match other `netlify.app` sites. A final custom domain needs its own
+origin adding, with credentials, before Studio will work on it.
 The build has no write token and only publishes site files, not tooling/backups.
 
 ## Hosting and handoff
