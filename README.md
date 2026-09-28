@@ -37,6 +37,19 @@ No write token is included in the public website.
 6. Use the document action menu to unpublish or delete a record. The original
    CEREC and root canal URLs remain supported while their records are published.
 
+**Publish puts a change live straight away.** Check it in Studio first: the
+editor shows your draft, and because the layout is fixed, what you see there is
+what the page will render. The website cannot show a draft — drafts are
+invisible to anyone not signed in, and the content CDN only ever serves
+published documents — so there is no way to preview an unpublished edit on the
+site itself. Unpublish or edit and publish again to correct something.
+
+The `main` and `production` branches stage **code**, not content. Both read the
+same published content, so publishing in Studio reaches the live site whatever
+the branches are doing. A draft preview could be built with a Netlify Function
+holding a read-only token; it was weighed on 2026-09-28 and left out to keep
+the hand-over simple.
+
 Photos support uploading, replacement and deletion. Image descriptions help
 visitors using screen readers. Page sections and cards can be reordered using
 Sanity's array controls. A service's original page URL is read-only so existing
